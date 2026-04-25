@@ -30,7 +30,7 @@
 - **模型架构**: Qwen3_5MoeForConditionalGeneration
 - **模型大小**: 35B 参数（MoE 架构）
 - **模型路径**: /home/user/models/Qwen3.6-35B-A3B
-- **服务名称**: qwen3-vl
+- **服务名称**: qwen3.6-35b-a3b
 
 ---
 
@@ -81,7 +81,7 @@ docker run -itd --rm --name "${CONTAINER_NAME}" \
     "${IMAGE}" sleep infinity
 
 # 启动 vLLM 服务
-docker exec -d "${CONTAINER_NAME}" bash -c 'export VLLM_USE_FLASH_ATTN=0 && cd / && python3 -m vllm.entrypoints.openai.api_server --model /models/Qwen3.6-35B-A3B --served-model-name qwen3-vl --tensor-parallel-size 8 --port 30000 --host 0.0.0.0 --dtype float16 --trust-remote-code --gpu-memory-utilization 0.9 --max-model-len 32768 --reasoning-parser qwen3'
+docker exec -d "${CONTAINER_NAME}" bash -c 'export VLLM_USE_FLASH_ATTN=0 && cd / && python3 -m vllm.entrypoints.openai.api_server --model /models/Qwen3.6-35B-A3B --served-model-name qwen3.6-35b-a3b --tensor-parallel-size 8 --port 30000 --host 0.0.0.0 --dtype float16 --trust-remote-code --gpu-memory-utilization 0.9 --max-model-len 32768 --reasoning-parser qwen3'
 ```
 
 #### 其他辅助脚本
@@ -136,7 +136,7 @@ docker exec -d vllm-qwen3 bash -c \
   'export VLLM_USE_FLASH_ATTN=0 && cd / && \
   python3 -m vllm.entrypoints.openai.api_server \
     --model /models/Qwen3.6-35B-A3B \
-    --served-model-name qwen3-vl \
+    --served-model-name qwen3.6-35b-a3b \
     --tensor-parallel-size 8 \
     --port 30000 \
     --host 0.0.0.0 \
@@ -202,7 +202,7 @@ curl http://localhost:30000/v1/models
 # 测试生成
 curl http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
+  -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
 ```
 
 ---
@@ -392,7 +392,7 @@ Triton 需要为 V100（sm_70）编译 PTX 内核，这是一个计算密集型�
 curl http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen3-vl",
+    "model": "qwen3.6-35b-a3b",
     "messages": [{"role": "user", "content": "你好"}],
     "max_tokens": 512
   }'
@@ -440,7 +440,7 @@ $ curl -s http://localhost:30000/v1/models | python3 -m json.tool
     "object": "list",
     "data": [
         {
-            "id": "qwen3-vl",
+            "id": "qwen3.6-35b-a3b",
             "object": "model",
             "created": 1777088791,
             "owned_by": "vllm",
@@ -457,7 +457,7 @@ $ curl -s http://localhost:30000/v1/models | python3 -m json.tool
 curl -s http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen3-vl",
+    "model": "qwen3.6-35b-a3b",
     "messages": [{"role": "user", "content": "1+1等于几？只回答数字。"}],
     "temperature": 0.0,
     "max_tokens": 512
@@ -483,13 +483,13 @@ curl -s http://localhost:30000/v1/chat/completions \
 # 测试响应时间
 time curl -s http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
+  -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
 
 # 并发测试
 for i in {1..5}; do
   curl -s http://localhost:30000/v1/chat/completions \
     -H "Content-Type: application/json" \
-    -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"测试'$i'"}],"max_tokens":100}' &
+    -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"测试'$i'"}],"max_tokens":100}' &
 done
 wait
 ```
@@ -559,7 +559,7 @@ time curl -s http://localhost:30000/health
 for i in {1..10}; do
   time curl -s http://localhost:30000/v1/chat/completions \
     -H "Content-Type: application/json" \
-    -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"测试"}],"max_tokens":50}'
+    -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"测试"}],"max_tokens":50}'
 done
 ```
 

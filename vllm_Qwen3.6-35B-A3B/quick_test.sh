@@ -2,7 +2,7 @@
 # 快速API测试脚本
 
 API_BASE="http://localhost:30000"
-MODEL_NAME="qwen3-vl"
+MODEL_NAME="qwen3.6-35b-a3b"
 
 echo "========================================"
 echo "🧪 vLLM API 快速测试"

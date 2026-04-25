@@ -1,183 +1,190 @@
-# 📦 文件清单
+# 📦 vLLM Qwen3.6-35B-A3B 项目文件清单
 
-## 📁 目录：/root/vllm_Qwen3.6-35B-A3B/
+## 🎯 快速导航
 
-**生成时间**: 2026-04-25
-**文件数量**: 12 个
-**总大小**: 约 42KB
+**想快速开始？** 🚀 查看 `START_HERE.md`
 
----
+**需要主文档？** 📖 查看 `README.md`
 
-## 📚 文档类（5个文件）
-
-### 1. README.md (8.6KB)
-- **类型**: 总览文档
-- **用途**: 快速了解整个目录结构和使用方法
-- **适合**: 首次使用者
-- **关键词**: 快速开始、目录结构、常用命令
-
-### 2. vllm_Qwen3.6-35B-A3B.md (17KB) ⭐
-- **类型**: 完整部署文档
-- **用途**: 核心文档，包含完整的部署流程和问题解决
-- **适合**: 深入学习和问题排查
-- **关键词**: 环境信息、部署流程、问题解决、验证测试
-
-### 3. README_VLLM_DEPLOYMENT.md (3.9KB)
-- **类型**: 部署指南
-- **用途**: 详细的部署说明和 API 使用示例
-- **适合**: 部署参考和 API 集成
-- **关键词**: 参数说明、API 示例、性能优化
-
-### 4. deployment_checklist.md (3.0KB)
-- **类型**: 检查清单
-- **用途**: 部署前后的检查清单和故障排查
-- **适合**: 部署验证
-- **关键词**: 检查清单、故障排查、性能优化
-
-### 5. vllm-qwen3.service (285B)
-- **类型**: systemd 服务配置
-- **用途**: 系统服务配置文件
-- **适合**: 生产环境部署
-- **关键词**: systemd、服务管理
+**想要所有命令？** ⚡ 运行 `./quick_reference.sh`
 
 ---
 
-## 🛠️ 脚本类（5个文件）
+## 📁 项目结构
 
-### 6. start_vllm.sh (2.9KB) ⭐
-- **类型**: 部署脚本（可执行）
-- **用途**: 一键启动 vLLM 服务
-- **使用**: `./start_vllm.sh`
-- **功能**:
-  - 自动检查并清理旧容器
-  - 验证模型路径
-  - 启动 Docker 容器
-  - 启动 vLLM 服务
-  - 健康检查
-
-### 7. stop_vllm.sh (370B)
-- **类型**: 运维脚本（可执行）
-- **用途**: 停止 vLLM 服务
-- **使用**: `./stop_vllm.sh`
-
-### 8. logs_vllm.sh (259B)
-- **类型**: 运维脚本（可执行）
-- **用途**: 实时查看服务日志
-- **使用**: `./logs_vllm.sh`
-
-### 9. test_api.sh (2.2KB)
-- **类型**: 测试脚本（可执行）
-- **用途**: Bash 版本的 API 测试
-- **使用**: `./test_api.sh`
-- **功能**:
-  - 健康检查
-  - 模型列表
-  - 文本生成
-  - 流式输出
-  - 推理测试
-
-### 10. quick_reference.sh (3.9KB)
-- **类型**: 辅助脚本（可执行）
-- **用途**: 显示所有常用命令的快速参考
-- **使用**: `./quick_reference.sh`
-
----
-
-## 💻 代码类（2个文件）
-
-### 11. test_api.py (3.6KB)
-- **类型**: Python 示例（可执行）
-- **用途**: Python 客户端示例和测试
-- **使用**: `./test_api.py`
-- **依赖**: `requirements.txt`
-- **功能**:
-  - 简单问答
-  - 数学推理
-  - 代码生成
-  - 流式输出
-  - 多轮对话
-
-### 12. requirements.txt (14B)
-- **类型**: 依赖配置
-- **用途**: Python 依赖列表
-- **使用**: `pip3 install -r requirements.txt`
-- **内容**: openai>=1.0.0
+```
+vllm_Qwen3.6-35B-A3B/
+│
+├── 🎯 入口文档（主目录）
+│   ├── START_HERE.md          ⭐ 从这里开始！
+│   ├── README.md              📖 主文档
+│   └── MANIFEST.md            📋 本文件
+│
+├── 📚 详细文档（docs/ 目录）
+│   ├── vllm_Qwen3.6-35B-A3B.md          # 完整技术文档
+│   ├── README_VLLM_DEPLOYMENT.md        # 部署详细指南
+│   ├── VLLM_MONITORING_GUIDE.md         # 监控完整指南
+│   ├── VLLM_LOGS_GUIDE.md               # 日志查看指南
+│   ├── LOGS_AND_MONITORING_COMPLETE.md  # 综合监控指南
+│   ├── REASONING_MODEL_GUIDE.md         # 推理模型说明
+│   ├── deployment_checklist.md          # 部署检查清单
+│   └── QUICKSTART.md                    # 快速开始
+│
+├── 🚀 部署脚本
+│   ├── start_vllm.sh           ⭐ 一键启动
+│   ├── stop_vllm.sh            # 停止服务
+│   └── vllm-qwen3.service      # systemd 配置
+│
+├── 🧪 测试脚本
+│   ├── test_api.py             ⭐ Python 测试
+│   ├── test_api.sh             # Bash 测试
+│   ├── quick_test.sh           # 快速测试
+│   └── test/
+│       └── test_bailian_api.py # 百炼 API 测试
+│
+├── 📈 监控脚本
+│   ├── monitor_vllm.sh         ⭐ 实时监控
+│   ├── analyze_vllm_performance.sh  # 性能分析
+│   ├── show_status.sh          # 快速状态
+│   ├── monitor_service.sh      # 服务监控
+│   ├── analyze_logs.sh         # 日志分析
+│   ├── logs_vllm.sh            # 日志查看
+│   └── quick_reference.sh      # 快速参考
+│
+└── 📦 其他
+    ├── requirements.txt        # Python 依赖
+    └── archive/                # 归档旧文件
+```
 
 ---
 
-## 🎯 使用建议
+## 🎯 配置信息
 
-### 🚀 首次部署者
-1. 先阅读 `README.md` - 了解全貌
-2. 再读 `vllm_Qwen3.6-35B-A3B.md` - 深入学习
-3. 检查 `deployment_checklist.md` - 验证环境
-4. 运行 `./start_vllm.sh` - 启动服务
-5. 执行 `./test_api.sh` - 验证部署
+| 项目 | 值 |
+|------|-----|
+| **模型名称** | qwen3.6-35b-a3b |
+| **API 地址** | http://localhost:30000/v1 |
+| **GPU 需求** | 8 张 |
+| **启动时间** | 8-10 分钟 |
 
-### 🔧 运维人员
-1. 快速参考: `./quick_reference.sh`
-2. 服务管理: `start_vllm.sh` / `stop_vllm.sh` / `logs_vllm.sh`
-3. 问题排查: `vllm_Qwen3.6-35B-A3B.md` 第6节
-4. API 测试: `./test_api.sh`
+---
 
-### 👨‍💻 开发人员
-1. API 使用: `README_VLLM_DEPLOYMENT.md`
-2. Python 示例: `test_api.py`
-3. 参数说明: `vllm_Qwen3.6-35B-A3B.md` 第2节
-4. 性能优化: `README_VLLM_DEPLOYMENT.md` 参数调优
+## 📝 文档说明
 
-### 📊 架构师
-1. 完整文档: `vllm_Qwen3.6-35B-A3B.md`
-2. 部署架构: 同上 第2节
-3. 生产部署: 同上 第6节
-4. 服务配置: `vllm-qwen3.service`
+### 主目录文档（3个）
+
+| 文件 | 用途 | 适合 |
+|------|------|------|
+| **START_HERE.md** | 🚀 **最简洁入门** | 新手必看 |
+| **README.md** | 📖 主文档 | 日常参考 |
+| **MANIFEST.md** | 📋 文件清单 | 查找文件 |
+
+### 详细文档（docs/ 目录，8个）
+
+| 文件 | 大小 | 用途 |
+|------|------|------|
+| **vllm_Qwen3.6-35B-A3B.md** | 17KB | ⭐ 完整技术文档 |
+| **README_VLLM_DEPLOYMENT.md** | 3.9KB | 部署详细指南 |
+| **VLLM_MONITORING_GUIDE.md** | 11KB | 监控完整指南 |
+| **VLLM_LOGS_GUIDE.md** | 9.2KB | 日志查看指南 |
+| **LOGS_AND_MONITORING_COMPLETE.md** | 15KB | 综合监控指南 |
+| **REASONING_MODEL_GUIDE.md** | 6.7KB | 推理模型说明 |
+| **deployment_checklist.md** | 3KB | 部署检查清单 |
+| **QUICKSTART.md** | 3.6KB | 快速开始 |
+
+---
+
+## 🔧 脚本文件
+
+### 部署脚本（3个）
+- `start_vllm.sh` - ⭐ 一键启动
+- `stop_vllm.sh` - 停止服务
+- `vllm-qwen3.service` - systemd 配置
+
+### 测试脚本（4个）
+- `test_api.py` - ⭐ Python 测试
+- `test_api.sh` - Bash 测试
+- `quick_test.sh` - 快速测试
+- `test/test_bailian_api.py` - 百炼 API
+
+### 监控脚本（7个）
+- `monitor_vllm.sh` - ⭐ 实时监控
+- `analyze_vllm_performance.sh` - 性能分析
+- `show_status.sh` - 快速状态
+- `monitor_service.sh` - 服务监控
+- `analyze_logs.sh` - 日志分析
+- `logs_vllm.sh` - 日志查看
+- `quick_reference.sh` - 快速参考
+
+---
+
+## 🚀 快速开始
+
+### 1. 启动服务
+```bash
+./start_vllm.sh
+```
+
+### 2. 测试验证
+```bash
+./test_api.sh
+```
+
+### 3. 监控服务
+```bash
+./monitor_vllm.sh
+```
 
 ---
 
 ## 📊 文件统计
 
-| 类型 | 数量 | 总大小 |
-|------|------|---------|
-| 📚 文档类 | 5 | 约 33KB |
-| 🛠️ 脚本类 | 5 | 约 9KB |
-| 💻 代码类 | 2 | 约 3.6KB |
-| **总计** | **12** | **约 42KB** |
+| 类型 | 数量 | 位置 |
+|------|------|------|
+| 🎯 入口文档 | 3 | 主目录 |
+| 📚 详细文档 | 8 | docs/ |
+| 🚀 部署脚本 | 3 | 主目录 |
+| 🧪 测试脚本 | 4 | 主目录 + test/ |
+| 📈 监控脚本 | 7 | 主目录 |
+| **总计** | **25** | - |
 
 ---
 
-## 🔍 快速查找
+## 🔍 按需求查找
 
-### 按用途查找
+### 我想...
 
-**我想...**
-- 🚀 部署服务 → `start_vllm.sh`
-- 📖 学习文档 → `vllm_Qwen3.6-35B-A3B.md`
-- 🧪 测试 API → `test_api.sh` 或 `test_api.py`
-- 🔍 排查问题 → `vllm_Qwen3.6-35B-A3B.md` 第6节
-- 📝 查看日志 → `logs_vllm.sh`
-- 🛑 停止服务 → `stop_vllm.sh`
-- 💡 快速参考 → `quick_reference.sh`
+**快速开始** → `START_HERE.md`
+**部署服务** → `./start_vllm.sh`
+**测试 API** → `./test_api.sh`
+**监控服务** → `./monitor_vllm.sh`
+**查看状态** → `./show_status.sh`
+**所有命令** → `./quick_reference.sh`
 
-### 按问题查找
+### 遇到问题...
 
-**遇到...**
-- 端口被占用 → `README_VLLM_DEPLOYMENT.md` 故障排查
-- API 返回空 → `vllm_Qwen3.6-35B-A3B.md` 问题6
-- 服务启动慢 → `vllm_Qwen3.6-35B-A3B.md` 问题5
-- FlashAttention 错误 → 同上 问题4
-- 部署失败 → `deployment_checklist.md` 故障排查
+**服务启动失败** → `docs/README_VLLM_DEPLOYMENT.md`
+**API 返回空** → `docs/REASONING_MODEL_GUIDE.md`
+**性能问题** → `docs/VLLM_MONITORING_GUIDE.md`
+**查看日志** → `docs/VLLM_LOGS_GUIDE.md`
+**完整排查** → `docs/vllm_Qwen3.6-35B-A3B.md`
 
 ---
 
 ## 📞 获取帮助
 
-1. **快速参考**: 运行 `./quick_reference.sh`
-2. **完整文档**: 阅读 `vllm_Qwen3.6-35B-A3B.md`
-3. **部署清单**: 查看 `deployment_checklist.md`
-4. **API 文档**: 参考 `README_VLLM_DEPLOYMENT.md`
+**最快的方式**：
+```bash
+./quick_reference.sh
+```
+
+**查看文档**：
+```bash
+cat START_HERE.md          # 入门指南
+cat README.md              # 主文档
+cat docs/vllm_Qwen3.6-35B-A3B.md  # 完整文档
+```
 
 ---
 
-**清单生成时间**: 2026-04-25
-**目录路径**: `/root/vllm_Qwen3.6-35B-A3B/`
-**维护状态**: ✅ 最新
+**版本**: v2.0 | **更新**: 2026-04-25 | **状态**: ✅ 最新

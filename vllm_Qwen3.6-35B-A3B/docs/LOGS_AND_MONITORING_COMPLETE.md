@@ -176,8 +176,8 @@ curl -s http://localhost:30000/metrics | grep "num_requests"
 
 **输出示例**:
 ```
-vllm:num_requests_running{engine="0",model_name="qwen3-vl"} 0.0
-vllm:num_requests_waiting{engine="0",model_name="qwen3-vl"} 0.0
+vllm:num_requests_running{engine="0",model_name="qwen3.6-35b-a3b"} 0.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-35b-a3b"} 0.0
 ```
 
 **指标说明**:
@@ -197,8 +197,8 @@ curl -s http://localhost:30000/metrics | grep "tokens_sum"
 
 **输出示例**:
 ```
-vllm:request_prompt_tokens_sum{engine="0",model_name="qwen3-vl"} 4027.0
-vllm:request_generation_tokens_sum{engine="0",model_name="qwen3-vl"} 8234.0
+vllm:request_prompt_tokens_sum{engine="0",model_name="qwen3.6-35b-a3b"} 4027.0
+vllm:request_generation_tokens_sum{engine="0",model_name="qwen3.6-35b-a3b"} 8234.0
 ```
 
 **吞吐量计算**:
@@ -708,7 +708,7 @@ GPU利用率: 0%
 # 发送测试请求
 curl -X POST http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"测试"}],"max_tokens":50}'
+  -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"测试"}],"max_tokens":50}'
 
 # 实时监控GPU
 watch -n 1 'docker exec vllm-qwen3 nvidia-smi'

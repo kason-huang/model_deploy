@@ -30,7 +30,7 @@ cat << 'EOF'
   模型列表：    curl http://localhost:30000/v1/models
   简单生成：    curl -X POST http://localhost:30000/v1/chat/completions \
                 -H "Content-Type: application/json" \
-                -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"你好"}]}'
+                -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"你好"}]}'
 
 📊 监控命令
 ────────────────────────────────────────────────────────────────

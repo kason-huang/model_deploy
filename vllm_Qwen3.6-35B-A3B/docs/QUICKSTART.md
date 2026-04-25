@@ -106,7 +106,7 @@ curl http://localhost:30000/v1/models
 # 文本生成
 curl http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
+  -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"你好"}],"max_tokens":512}'
 ```
 
 ### Python 客户端
@@ -161,7 +161,7 @@ A: 运行 `./stop_vllm.sh` 或 `docker stop vllm-qwen3`
 | 项目 | 值 |
 |------|-----|
 | 服务地址 | http://0.0.0.0:30000 |
-| 模型名称 | qwen3-vl |
+| 模型名称 | qwen3.6-35b-a3b |
 | 最大长度 | 32768 tokens |
 | GPU 数量 | 8 张 |
 

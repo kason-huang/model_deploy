@@ -59,7 +59,7 @@ class BailianSceneClassifier:
         # self.model = "qwen-vl-max"
         # self.api_url = "http://192.168.0.59:30000/v1"
         self.api_url = "http://localhost:30000/v1"  # 使用本地vLLM服务
-        self.model="qwen3-vl"
+        self.model="qwen3.6-35b-a3b"
         
 
     def encode_image_to_base64(self, image_path: str) -> str:

@@ -164,7 +164,7 @@ curl http://localhost:30000/v1/models
 # 快速测试
 curl -X POST http://localhost:30000/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"你好"}],"max_tokens":50}'
+  -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"你好"}],"max_tokens":50}'
 ```
 
 ---
@@ -218,7 +218,7 @@ for i in {1..10}; do
   echo "测试 #$i:"
   time curl -s http://localhost:30000/v1/chat/completions \
     -H "Content-Type: application/json" \
-    -d '{"model":"qwen3-vl","messages":[{"role":"user","content":"测试"}],"max_tokens":50}' > /dev/null
+    -d '{"model":"qwen3.6-35b-a3b","messages":[{"role":"user","content":"测试"}],"max_tokens":50}' > /dev/null
 done
 ```
 

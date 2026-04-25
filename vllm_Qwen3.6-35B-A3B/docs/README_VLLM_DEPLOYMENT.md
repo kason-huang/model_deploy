@@ -63,7 +63,7 @@
 | 参数 | 值 | 说明 |
 |------|-----|------|
 | 模型路径 | /models/Qwen3.6-35B-A3B | 容器内路径 |
-| 服务名称 | qwen3-vl | API 调用使用的名称 |
+| 服务名称 | qwen3.6-35b-a3b | API 调用使用的名称 |
 | 端口 | 30000 | API 服务端口 |
 | Tensor 并行 | 8 | 分布在 8 张 GPU |
 | 数据类型 | float16 | 半精度 |
@@ -84,7 +84,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="qwen3-vl",
+    model="qwen3.6-35b-a3b",
     messages=[
         {"role": "user", "content": "你好！"}
     ],
@@ -101,7 +101,7 @@ print(response.choices[0].message.content)
 curl http://localhost:30000/v1/chat/completions \
     -H "Content-Type: application/json" \
     -d '{
-        "model": "qwen3-vl",
+        "model": "qwen3.6-35b-a3b",
         "messages": [{"role": "user", "content": "你好！"}],
         "temperature": 0.7,
         "max_tokens": 100

@@ -75,7 +75,7 @@ curl http://localhost:30000/health
 
 #### 正在处理的请求
 ```
-vllm:num_requests_running{engine="0",model_name="qwen3-vl"}
+vllm:num_requests_running{engine="0",model_name="qwen3.6-35b-a3b"}
 ```
 - **含义**: 当前正在执行的请求数
 - **正常值**: 0-10
@@ -83,7 +83,7 @@ vllm:num_requests_running{engine="0",model_name="qwen3-vl"}
 
 #### 等待中的请求
 ```
-vllm:num_requests_waiting{engine="0",model_name="qwen3-vl"}
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-35b-a3b"}
 ```
 - **含义**: 排队等待的请求数
 - **正常值**: 0-5
@@ -91,8 +91,8 @@ vllm:num_requests_waiting{engine="0",model_name="qwen3-vl"}
 
 #### 总请求数
 ```
-vllm:num_requests_success{engine="0",model_name="qwen3-vl"}       # 成功
-vllm:num_requests_failed{engine="0",model_name="qwen3-vl"}        # 失败
+vllm:num_requests_success{engine="0",model_name="qwen3.6-35b-a3b"}       # 成功
+vllm:num_requests_failed{engine="0",model_name="qwen3.6-35b-a3b"}        # 失败
 ```
 
 ---
@@ -130,7 +130,7 @@ vllm:request_prompt_tokens_bucket{le="10000"}    # ≤10000 tokens
 
 #### KV缓存使用率
 ```
-vllm:kv_cache_usage_perc{engine="0",model_name="qwen3-vl"}
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-35b-a3b"}
 ```
 - **含义**: KV缓存使用百分比
 - **正常值**: 0-80%

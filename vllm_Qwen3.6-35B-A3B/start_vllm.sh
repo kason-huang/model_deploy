@@ -9,7 +9,7 @@ set -e
 CONTAINER_NAME="vllm-qwen3"
 IMAGE="vllm/vllm-openai:latest"
 MODEL_PATH="/models/Qwen3.6-35B-A3B"
-SERVED_MODEL_NAME="qwen3-vl"
+SERVED_MODEL_NAME="qwen3.6-35b-a3b"
 PORT=30000
 HOST_PATH="/home/user/models"
 
@@ -53,7 +53,7 @@ docker exec -d "${CONTAINER_NAME}" bash -c '
     export VLLM_USE_FLASH_ATTN=0
     python3 -m vllm.entrypoints.openai.api_server \
         --model /models/Qwen3.6-35B-A3B \
-        --served-model-name qwen3-vl \
+        --served-model-name qwen3.6-35b-a3b \
         --tensor-parallel-size 8 \
         --port 30000 \
         --host 0.0.0.0 \

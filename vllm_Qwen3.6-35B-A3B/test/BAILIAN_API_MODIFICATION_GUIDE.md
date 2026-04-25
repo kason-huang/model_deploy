@@ -48,7 +48,7 @@
 #self.model = "qwen3.6-35b-a3b"
 # self.model = "qwen-vl-max"
 self.api_url = "http://192.168.0.59:30000/v1"
-self.model="qwen3-vl"
+self.model="qwen3.6-35b-a3b"
 ```
 
 **修改后代码**:
@@ -59,7 +59,7 @@ self.model="qwen3-vl"
 # self.model = "qwen-vl-max"
 # self.api_url = "http://192.168.0.59:30000/v1"
 self.api_url = "http://localhost:30000/v1"  # 使用本地vLLM服务
-self.model="qwen3-vl"
+self.model="qwen3.6-35b-a3b"
 ```
 
 **修改原因**:
@@ -678,7 +678,7 @@ Qwen3 推理模型的特点：
 **请求格式**:
 ```json
 {
-  "model": "qwen3-vl",
+  "model": "qwen3.6-35b-a3b",
   "messages": [
     {
       "role": "user",
@@ -785,7 +785,7 @@ docker logs -f vllm-qwen3
 ```python
 # API配置
 api_url = "http://localhost:30000/v1"
-model = "qwen3-vl"
+model = "qwen3.6-35b-a3b"
 
 # 请求参数
 max_tokens = 1024      # 推理模型推荐
