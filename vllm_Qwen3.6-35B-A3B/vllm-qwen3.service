@@ -1,0 +1,16 @@
+[Unit]
+Description=vLLM Qwen3 Model Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/root
+ExecStart=/root/start_vllm.sh
+ExecStop=/root/stop_vllm.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
